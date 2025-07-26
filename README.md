@@ -34,3 +34,14 @@ sites_per_agency <- data %>%
 sites_per_state <- data %>%
   filter(reporting_area_state %in% state.abb) %>%
   count(reporting_area_state, sort = TRUE)
+
+#Plot
+sites_per_area %>%
+  slice_max(n, n = 15) %>%
+  ggplot(aes(x = reorder(reporting_area_name, n), y = n)) +
+  geom_bar(stat = "identity", fill = "steelblue") +
+  coord_flip() +
+  labs(title = "Top 15 Reporting Areas by Number of Sites",
+       x = "Reporting Area",
+       y = "Number of Sites") +
+  theme_minimal()
