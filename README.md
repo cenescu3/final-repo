@@ -24,6 +24,7 @@ data <- data %>%
 #Look at cleaned data set
 glimpse(data)
 
+
 #Summary stats ----------------------------------------
 sites_per_area <- data %>%
   count(reporting_area_name, sort = TRUE)
@@ -36,6 +37,7 @@ sites_per_state <- data %>%
   count(reporting_area_state, sort = TRUE)
 
 #Plot
+
 sites_per_area %>%
   slice_max(n, n = 15) %>%
   ggplot(aes(x = reorder(reporting_area_name, n), y = n)) +
