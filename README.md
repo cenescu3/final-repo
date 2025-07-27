@@ -47,3 +47,7 @@ sites_per_area %>%
        x = "Reporting Area",
        y = "Number of Sites") +
   theme_minimal()
+
+
+  write_csv(data, "~/Desktop/cleaned_nowcast_data.csv")
+
