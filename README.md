@@ -21,9 +21,12 @@ data <- data %>% filter(!is.na(site_lat), !is.na(site_long))
 data <- data %>%
   mutate(across(where(is.character), str_trim))
 
+#Remove any non-US sites
+data <- data %>%
+  filter(reporting_area_state %in% state.abb)
+
 #Look at cleaned data set
 glimpse(data)
-
 
 #Summary stats ----------------------------------------
 sites_per_area <- data %>%
