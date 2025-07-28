@@ -40,6 +40,19 @@ sites_per_state <- data %>%
   filter(reporting_area_state %in% state.abb) %>%
   count(reporting_area_state, sort = TRUE)
 
+#Calculations
+
+#Number of sites per reporting area: 
+
+  data %>% count(reporting_area_name, sort = TRUE)
+
+#Number of unique agencies and how many sites each manages: 
+
+  data %>% count(site_agency_name, sort = TRUE)
+#Site coverage per state: 
+
+  data %>% count(reporting_area_state)
+
 #Plot
 
 sites_per_area %>%
