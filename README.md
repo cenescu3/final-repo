@@ -22,6 +22,7 @@ data <- data %>%
   mutate(across(where(is.character), str_trim))
 
 #Remove any non-US sites
+
 data <- data %>%
   filter(reporting_area_state %in% state.abb)
 
